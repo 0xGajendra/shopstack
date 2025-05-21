@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
 import productRoute from "./routes/product.route.js";
+import { sql } from "./config/db.config.js";
 
 const PORT = process.env.PORT || 3001;
 

@@ -59,7 +59,7 @@ export const getProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
     const {id} = req.params;
-    const {name, price, image} = req.body;
+    const { name , price, image} = req.body;
 
     try {
         const updatedProduct = 
@@ -91,7 +91,7 @@ export const deleteProduct = async (req, res) => {
             DELETE from products WHERE id=${id} RETURNING *
         `;
 
-        if(updatedProduct.length === 0){
+        if(deleteProduct.length === 0){
             return res.status(404).json({
                 success: false,
                 message: "Product not found"
@@ -100,7 +100,7 @@ export const deleteProduct = async (req, res) => {
 
         res.status(200).json({ success: true, data: deletedProduct[0] });
     } catch (error) {
-        console.log("Error in updateProduct controller", error);
+        console.log("Error in deleteProduct controller", error);
         res.status(500).json({ success: false, message: "Internal Server Error"});
     }
 }
