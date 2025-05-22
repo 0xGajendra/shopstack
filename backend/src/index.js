@@ -21,7 +21,7 @@ app.get("/", (req, res)=> {
     res.send("Hello Nigga!");
 });
 
-app.use("/api/product", productRoute);
+app.use("/api/products", productRoute);
 
 const initDB = async () => {
     try {

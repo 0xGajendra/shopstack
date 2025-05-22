@@ -15,11 +15,12 @@ export const getAllProducts = async (req, res) =>{
         res.status(500).json({ success: false, message: "Internal Server Error"});
     }
 }
+
 export const createProduct = async (req, res) =>{
     const {name, price, image} = req.body;
 
     if(!name || !price || !image){
-        res.status(400).json({success: false, message: "All fields are required"})
+        return res.status(400).json({success: false, message: "All fields are required"})
     }
 
     try {
