@@ -7,7 +7,7 @@ export const getAllProducts = async (req, res) =>{
             ORDER BY created_at DESC
         `;
 
-        console.log(products);
+        // console.log(products);
         
         res.status(200).json({success: true, message: "all the products are successfully retrieved from the DB", data:products})
     } catch (error) {

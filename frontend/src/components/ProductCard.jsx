@@ -1,38 +1,45 @@
-
-import { Edit } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Trash2, Pencil } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
-import { Button } from "./ui/button";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-accent rounded-lg p-5 ">
-      {/* PRODUCT IMAGE */}
-      <figure>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="top-0 left-0 w-48 h-36 object-cover rounded-lg hover:scale-105 transition-all duration-300 cursor-grab"
-        />
-      </figure>
-      <div className="">
-        {/* PRODUCT INFO */}
-        <h2 className="text-lg font-semibold ">{product.name}</h2>
-        <p className="text=2xl font-bold text-primary">
-          ${Number(product.price).toFixed(2)}
-        </p>
-        {/* CARD ACTIONS */}
-        <div className="flex justify-end mt-4 gap-2">
-          <Button asChild variant="outline">
-            <Link href={`/products/${product.id}`}>
-            <Edit className="size-4" /></Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href={``} />
+   <Card className="hover:shadow-2xl transition-shadow duration-300">
+      <CardHeader className="p-2">
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="rounded-lg object-cover w-full h-full"
+          />
+        </AspectRatio>
+      </CardHeader>
+
+      <CardContent className="space-y-4 p-4">
+        <CardTitle className="text-lg font-semibold">{product.name}</CardTitle>
+        <p className="text-2xl font-bold text-primary">${Number(product.price).toFixed(2)}</p>
+
+        <div className="flex justify-end gap-2">
+          <Link to={`/product/${product.id}`}>
+            <Button variant="outline" size="sm" className="text-primary hover:text-accent-foreground">
+              <Pencil className="h-4 w-4" />
+            </Button>
+          </Link>
+
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={() => deleteProduct(product.id)}
+            // className="text-red-600 hover:text-red-800"
+          >
+            <Trash2 className="h-4 w-4" />
           </Button>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card> 
   );
 };
 

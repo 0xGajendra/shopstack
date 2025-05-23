@@ -11,8 +11,8 @@ const App = () => {
     <div className='h-screen font-bricolage bg-background text-foreground'>
         <Navbar/>
         <Routes>
-          <Route path='/' element={ <HomePage/>} />
-          <Route path='/' element={ <ProductPage/>} />
+          <Route path='/' element={ <HomePage />} />
+          <Route path='/' element={ <ProductPage />} />
         </Routes>
     </div>
     // </ThemeProvider>
