@@ -9,7 +9,7 @@ export const useProductStore = create((set, get) => ({
         set({loading: true, error: null});
         try {
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/products`);
-            set({products: response.data});
+            set({products: response.data.data});
         }catch(error){
             if(error.status === 429) 
                 set({error: "Too many requests. Please try again later."});
