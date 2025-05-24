@@ -22,7 +22,10 @@ const HomePage = () => {
         </Button>
       </div>
 
-      {error && <div className=''>{error}</div>}
+      {error && <div>{error}</div>}
+
+      
+
 
       {loading ? (
         <div className='flex justify-center items-center h-64'>

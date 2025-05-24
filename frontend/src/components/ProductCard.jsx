@@ -4,8 +4,11 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Trash2, Pencil } from "lucide-react";
 import React from "react";
 import { Link } from "react-router";
+import { useProductStore } from "@/store/productStore";
 
 const ProductCard = ({ product }) => {
+
+  const {deleteProduct} = useProductStore();
   return (
    <Card className="hover:shadow-2xl transition-shadow duration-300">
       <CardHeader className="p-2">
@@ -33,7 +36,6 @@ const ProductCard = ({ product }) => {
             variant="destructive"
             size="sm"
             onClick={() => deleteProduct(product.id)}
-            // className="text-red-600 hover:text-red-800"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

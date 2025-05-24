@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import { Route, Routes } from 'react-router'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
+import { Toaster } from 'react-hot-toast'
 // import { ThemeProvider } from './components/theme-provider'
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <Route path='/' element={ <HomePage />} />
           <Route path='/' element={ <ProductPage />} />
         </Routes>
+        <Toaster />
     </div>
     // </ThemeProvider>
   )
