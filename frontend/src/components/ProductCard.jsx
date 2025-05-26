@@ -26,11 +26,11 @@ const ProductCard = ({ product }) => {
         <p className="text-2xl font-bold text-primary">${Number(product.price).toFixed(2)}</p>
 
         <div className="flex justify-end gap-2">
+            <Button asChild variant="outline" size="sm" className="text-primary hover:text-accent-foreground">
           <Link to={`/product/${product.id}`}>
-            <Button variant="outline" size="sm" className="text-primary hover:text-accent-foreground">
               <Pencil className="h-4 w-4" />
-            </Button>
           </Link>
+            </Button>
 
           <Button
             variant="destructive"
