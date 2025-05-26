@@ -1,13 +1,19 @@
+import { useProductStore } from '@/store/productStore';
 import { ShoppingBagIcon, ShoppingCart } from 'lucide-react'
 import React from 'react'
 import { Link, useResolvedPath } from 'react-router'
+import { ModeToggle } from './mode-toggle';
 // import { ModeToggle } from './mode-toggle'
 
 const Navbar = () => {
 
     const {pathname} =  useResolvedPath();
-    const isHomePage = pathname === "/homepage"
-    let products = [0,0,0,0,0,0]
+    const isHomePage = pathname === "/"
+    const {products} = useProductStore();
+
+    console.log("NavBar", products.lenght);
+    
+    
 
   return (
     <div className='bg-background backdrop-blur-lg border-b border-accent sticky top-0 z-50'>
@@ -28,7 +34,8 @@ const Navbar = () => {
             <div className='flex items-center gap-4'>
                 {/* need to fix this */}
                 {/* <ModeToggle/>  */}
-
+                <ModeToggle/>
+                {isHomePage && (
                 <div className=''>
                     <div className='px-4 gap-5 justify-center flex items-center py-3 rounded-xl hover:opacity-80 transition-opacity bg-accent'>
                         <ShoppingCart className='size-6'/>
@@ -37,6 +44,7 @@ const Navbar = () => {
                         </span>
                     </div>
                 </div>
+                )}
             </div>
       </div>
     </div>

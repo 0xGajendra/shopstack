@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <div className='max-w-6xl mx-auto px-4 py-8'>
       <div className='flex justify-between items-center mb-8'>
-        <Button>
+        <Button asChild>
           <AddProductModal/>
         </Button>
         <Button onClick={fetchProducts} >
@@ -47,11 +47,9 @@ const HomePage = () => {
 
 
       {loading ? (
-        <div className='flex justify-center items-center h-64'>
-          
-          <Loader2 className='animate-spin repeat-infinite'/>
-
-      </div>): (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className="flex justify-center items-center min-h-screen">
+                <Loader2 className="size-20 animate-spin repeat-infinite" />
+              </div>): (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {products.map(product => (
             <ProductCard key={product.id} product={product}/>
           ))}

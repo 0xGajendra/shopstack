@@ -16,7 +16,7 @@ export const useProductStore = create((set, get) => ({
     },
 
     fetchProducts: async () => {
-        set({loading: true, error: null, products: null});
+        set({loading: true, error: null, products: []});
         try {
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/products`);
             set({products: response.data.data });
@@ -77,7 +77,7 @@ export const useProductStore = create((set, get) => ({
         set({loading: true})
 
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/products/:${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/products/${id}`);
             set({ currentProduct : response.data.data, formData: response.data.data, error:null }); //pre-fill form with current product data
         } catch (error) {
             console.log("Error in fetch Product", error);
